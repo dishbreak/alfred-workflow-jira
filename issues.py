@@ -1,11 +1,7 @@
 import sys
 from workflow import Workflow, web, ICON_INFO
 import base64
-
-API_TOKEN = 'bEMnM7sEGEyTYq0YyMiY9C70'
-USER = 'vkotcherlakota@nerdwallet.com'
-URL = "https://nerdwallet.atlassian.net"
-JQL_QUERY = 'status in ("In Progress", "To Do", Triage) AND updated >= -52w AND assignee in (currentUser()) order by lastViewed DESC'
+from config import get_missing_configs, JIRA_API_KEY, JIRA_URL, JIRA_USERNAME, JQL_QUERY
 
 def pluck_issue(issue):
 	plucked = {"valid": True}
@@ -14,10 +10,10 @@ def pluck_issue(issue):
 	plucked['subtitle'] = issue['fields']['description'][0:80] + "..." if len(issue['fields']['description']) > 80 else "" 
 	return plucked
 
-def get_issues(url, user, password, wf):
+def get_issues(url, user, password, query, wf):
 	basic_auth = base64.b64encode("{}:{}".format(user, password))
 	response = web.get(url + "/rest/api/2/search",
-		params=dict(jql=JQL_QUERY,),
+		params=dict(jql=query,),
 		headers=dict(Authorization="Basic {}".format(basic_auth)),
 	)
 
@@ -32,9 +28,19 @@ def get_issues(url, user, password, wf):
 
 
 def main(wf):
+	missing_configs = get_missing_configs(wf)
+	if missing_configs:
+		raise Exception("Missing configs: {}. Run `jirasetup` to configure".format(missing_configs))
+
 	query = wf.args[0] if len(wf.args) > 0 else None
 
-	issues, max_issues, total_issues = get_issues(URL, USER, API_TOKEN, wf)
+	issues, max_issues, total_issues = get_issues(
+		wf.settings[JIRA_URL],
+		wf.settings[JIRA_USERNAME],
+		wf.get_password(JIRA_API_KEY),
+		JQL_QUERY,
+		wf)
+	
 	if query:
 		issues = wf.filter(query, issues, key=lambda x: x['title'])
 
