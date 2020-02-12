@@ -3,11 +3,16 @@ from workflow import Workflow, web, ICON_INFO
 import base64
 from config import get_missing_configs, JIRA_API_KEY, JIRA_URL, JIRA_USERNAME, JQL_QUERY
 
-def pluck_issue(issue):
+def truncate(string, length, default_text):
+	if not string:
+		return default_text
+	return string[0:length] + "..." if len(string) > length else ""
+
+def pluck_issue(issue, url):
 	plucked = {"valid": True}
-	plucked['arg'] = issue['key']
+	plucked['arg'] = url + "/browse/" + issue['key']
 	plucked['title'] = issue['key'] + ": " + issue['fields']['summary']
-	plucked['subtitle'] = issue['fields']['description'][0:80] + "..." if len(issue['fields']['description']) > 80 else "" 
+	plucked['subtitle'] = truncate(issue['fields']['description'], length=80, default_text="No description given.")
 	return plucked
 
 def get_issues(url, user, password, query, wf):
@@ -20,7 +25,8 @@ def get_issues(url, user, password, query, wf):
 	wf.logger.debug(response.url)
 	response.raise_for_status()
 	data = response.json()
-	issues = [ pluck_issue(x) for x in data['issues'] ]
+	wf.logger.debug(data)
+	issues = [ pluck_issue(x, url) for x in data['issues'] ]
 	max_issues = data['maxResults']
 	total_issues = data['total']
 
@@ -40,7 +46,7 @@ def main(wf):
 		wf.get_password(JIRA_API_KEY),
 		JQL_QUERY,
 		wf)
-	
+
 	if query:
 		issues = wf.filter(query, issues, key=lambda x: x['title'])
 
@@ -48,7 +54,9 @@ def main(wf):
 	if total_issues > max_issues:
 		wf.add_item(title="{} issues found, showing the first {}".format(total_issues, max_issues),
 			subtitle="Press enter to open search in Jira",
-			arg="search", icon=ICON_INFO)
+			arg="search", icon=ICON_INFO, valid=True)
+	else:
+		wf.add_item(title="Search in Jira", arg="search", icon=ICON_INFO, valid=True)
 
 	for item in issues:
 		wf.add_item(**item)
