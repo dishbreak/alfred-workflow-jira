@@ -4,7 +4,7 @@ import sys
 JIRA_API_KEY = "jira_api_key"
 JIRA_URL = "jira_url"
 JIRA_USERNAME = "jira_username"
-JQL_QUERY = 'status in ("In Progress", "To Do", Triage) AND updated >= -52w AND assignee in (currentUser()) order by lastViewed DESC'
+JQL_QUERY = 'status in ("In Progress", "To Do", Triage, "Code Review") AND updated >= -52w AND assignee in (currentUser()) order by lastViewed DESC'
 
 def get_missing_configs(wf):
 	"""
