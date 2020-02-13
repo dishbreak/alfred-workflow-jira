@@ -1,11 +1,12 @@
 from base_runner import BaseRunner
 from client.agile import AgileClient
 import config
-from workflow import Workflow, ICON_GROUP
+from workflow import Workflow, ICON_GROUP, ICON_WEB
 from collections import defaultdict
 import sys
 import itertools
 from utils import pluck_issue
+from urlparse import urljoin
 
 
 JQL_QUERY = "sprint in openSprints() and sprint not in futureSprints() and assignee in (currentUser())"
@@ -52,7 +53,12 @@ class BoardRunner(BaseRunner):
             wf.logger.debug("col: %s issues %s", col, issues_in_col)
             issues_by_column[col] += list(issues_in_col)
 
+        board_jira_url = urljoin(
+            wf.settings[config.JIRA_URL],
+            "secure/RapidBoard.jspa?rapidView=%s" % wf.settings[config.JIRA_BOARD_ID]
+        )
 
+        wf.add_item(title="View In Jira", icon=ICON_WEB, arg=board_jira_url, valid=True)
         for column in column_names:
             wf.add_item(title=column, icon=ICON_GROUP)
             for issue in issues_by_column[column]:

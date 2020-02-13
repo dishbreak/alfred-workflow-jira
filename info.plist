@@ -48,16 +48,6 @@
 			</dict>
 			<dict>
 				<key>destinationuid</key>
-				<string>D80B8381-23A1-443E-B2F0-67B64EF50317</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-			<dict>
-				<key>destinationuid</key>
 				<string>8EDC51B8-D1D9-4651-9B52-60CDB0D6CD39</string>
 				<key>modifiers</key>
 				<integer>0</integer>
