@@ -2,18 +2,8 @@ import sys
 from workflow import Workflow, web, ICON_INFO
 import base64
 from config import get_missing_configs, JIRA_API_KEY, JIRA_URL, JIRA_USERNAME, JQL_QUERY
+from utils import pluck_issue
 
-def truncate(string, length, default_text):
-	if not string:
-		return default_text
-	return string[0:length] + "..." if len(string) > length else ""
-
-def pluck_issue(issue, url):
-	plucked = {"valid": True}
-	plucked['arg'] = url + "/browse/" + issue['key']
-	plucked['title'] = issue['key'] + ": " + issue['fields']['summary']
-	plucked['subtitle'] = truncate(issue['fields']['description'], length=80, default_text="No description given.")
-	return plucked
 
 def get_issues(url, user, password, query, wf):
 	basic_auth = base64.b64encode("{}:{}".format(user, password))

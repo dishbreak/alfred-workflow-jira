@@ -34,6 +34,39 @@
 				<false/>
 			</dict>
 		</array>
+		<key>0E158EFE-F8C1-4F29-AC4B-53577B5B6A5F</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>7B655556-FA71-4FB9-A6C6-2B93DD8E3AF1</string>
+				<key>modifiers</key>
+				<integer>131072</integer>
+				<key>modifiersubtext</key>
+				<string>Paste to underlying app</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>D80B8381-23A1-443E-B2F0-67B64EF50317</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>8EDC51B8-D1D9-4651-9B52-60CDB0D6CD39</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>14F2A906-363D-433D-94D8-3A97A27B11EF</key>
 		<array>
 			<dict>
@@ -108,6 +141,16 @@
 			<dict>
 				<key>destinationuid</key>
 				<string>06864344-A779-440B-A1D0-5D7A632812D2</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>98CC8D68-1097-40EE-8C83-61E1A0E6DF80</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -283,6 +326,19 @@
 				<false/>
 			</dict>
 		</array>
+		<key>98CC8D68-1097-40EE-8C83-61E1A0E6DF80</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>BE0532BA-82A1-48B5-8ECF-85DA74634F66</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>9986B8A2-4E72-4EB5-A1BC-94C219A5EF57</key>
 		<array>
 			<dict>
@@ -366,6 +422,19 @@
 			<dict>
 				<key>destinationuid</key>
 				<string>D44432A8-15B4-471D-A035-EA02F359F66F</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>BE0532BA-82A1-48B5-8ECF-85DA74634F66</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>F4C05ECE-A136-43ED-A852-38B81DE0C1C4</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -503,6 +572,19 @@
 			<dict>
 				<key>destinationuid</key>
 				<string>17237661-826F-41CE-B09C-83B5A108BF46</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>F4C05ECE-A136-43ED-A852-38B81DE0C1C4</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>76E66569-7D24-4F20-8C60-6D1BB3BE011D</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -827,6 +909,55 @@
 			<string>8EDC51B8-D1D9-4651-9B52-60CDB0D6CD39</string>
 			<key>version</key>
 			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<true/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<true/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>myboard</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Getting results from Jira API...</string>
+				<key>script</key>
+				<string>python board.py get_board_issues</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string></string>
+				<key>title</key>
+				<string>See issues on my board</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>0E158EFE-F8C1-4F29-AC4B-53577B5B6A5F</string>
+			<key>version</key>
+			<integer>3</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -1247,7 +1378,7 @@
 				<key>fixedorder</key>
 				<true/>
 				<key>items</key>
-				<string>[{"title":"Set Jira URL","arg":"set_url","subtitle":"Set the URL for your API endpoint"},{"title":"Set Jira Username","arg":"set_username","subtitle":"Set your Jira Username"},{"title":"Set Jira API Token","arg":"set_token","subtitle":"Set your Jira API Token"},{"title":"Clear All Settings","arg":"clear_settings","subtitle":"Wipe everything and start fresh"}]</string>
+				<string>[{"title":"Set Jira URL","arg":"set_url","subtitle":"Set the URL for your API endpoint"},{"title":"Set Jira Username","arg":"set_username","subtitle":"Set your Jira Username"},{"title":"Set Jira API Token","arg":"set_token","subtitle":"Set your Jira API Token"},{"title":"Clear All Settings","arg":"clear_settings","subtitle":"Wipe everything and start fresh"},{"title":"Set Board to Follow","arg":"set_board","subtitle":"Pick a Jira Board to view in Alfred"}]</string>
 				<key>keyword</key>
 				<string>jiraconfig</string>
 				<key>runningsubtext</key>
@@ -1447,6 +1578,110 @@ python config.py clear_config abab</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>python config.py set_board $1</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>76E66569-7D24-4F20-8C60-6D1BB3BE011D</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<true/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<true/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Getting boards from Jira API...</string>
+				<key>script</key>
+				<string>python board.py get_boards</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Pick a board to follow with Alfred.</string>
+				<key>title</key>
+				<string>Select a Board</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>F4C05ECE-A136-43ED-A852-38B81DE0C1C4</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>inputstring</key>
+				<string>{query}</string>
+				<key>matchcasesensitive</key>
+				<true/>
+				<key>matchmode</key>
+				<integer>0</integer>
+				<key>matchstring</key>
+				<string>set_board</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.filter</string>
+			<key>uid</key>
+			<string>98CC8D68-1097-40EE-8C83-61E1A0E6DF80</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argument</key>
+				<string></string>
+				<key>variables</key>
+				<dict/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>BE0532BA-82A1-48B5-8ECF-85DA74634F66</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
@@ -1465,6 +1700,13 @@ python config.py clear_config abab</string>
 			<integer>310</integer>
 			<key>ypos</key>
 			<integer>830</integer>
+		</dict>
+		<key>0E158EFE-F8C1-4F29-AC4B-53577B5B6A5F</key>
+		<dict>
+			<key>xpos</key>
+			<integer>40</integer>
+			<key>ypos</key>
+			<integer>200</integer>
 		</dict>
 		<key>14F2A906-363D-433D-94D8-3A97A27B11EF</key>
 		<dict>
@@ -1571,6 +1813,13 @@ python config.py clear_config abab</string>
 			<key>ypos</key>
 			<integer>50</integer>
 		</dict>
+		<key>76E66569-7D24-4F20-8C60-6D1BB3BE011D</key>
+		<dict>
+			<key>xpos</key>
+			<integer>660</integer>
+			<key>ypos</key>
+			<integer>1340</integer>
+		</dict>
 		<key>7B655556-FA71-4FB9-A6C6-2B93DD8E3AF1</key>
 		<dict>
 			<key>xpos</key>
@@ -1612,6 +1861,13 @@ python config.py clear_config abab</string>
 			<integer>1800</integer>
 			<key>ypos</key>
 			<integer>50</integer>
+		</dict>
+		<key>98CC8D68-1097-40EE-8C83-61E1A0E6DF80</key>
+		<dict>
+			<key>xpos</key>
+			<integer>335</integer>
+			<key>ypos</key>
+			<integer>1370</integer>
 		</dict>
 		<key>9986B8A2-4E72-4EB5-A1BC-94C219A5EF57</key>
 		<dict>
@@ -1661,6 +1917,13 @@ python config.py clear_config abab</string>
 			<integer>690</integer>
 			<key>ypos</key>
 			<integer>340</integer>
+		</dict>
+		<key>BE0532BA-82A1-48B5-8ECF-85DA74634F66</key>
+		<dict>
+			<key>xpos</key>
+			<integer>395</integer>
+			<key>ypos</key>
+			<integer>1370</integer>
 		</dict>
 		<key>C55BAAD7-C48B-4FD3-B744-BCEF744A807C</key>
 		<dict>
@@ -1731,6 +1994,13 @@ python config.py clear_config abab</string>
 			<integer>700</integer>
 			<key>ypos</key>
 			<integer>600</integer>
+		</dict>
+		<key>F4C05ECE-A136-43ED-A852-38B81DE0C1C4</key>
+		<dict>
+			<key>xpos</key>
+			<integer>495</integer>
+			<key>ypos</key>
+			<integer>1340</integer>
 		</dict>
 		<key>F64018A0-8C3C-46C9-8337-94BC48EC8299</key>
 		<dict>
