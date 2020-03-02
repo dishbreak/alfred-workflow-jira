@@ -21,17 +21,21 @@ class BoardRunner(BaseRunner):
             logger=wf.logger,
         )
 
-        if config.JIRA_BOARD_ID not in wf.settings:
+        selected_board = wf.args[1] if len(wf.args) > 1 else None
+
+        if not selected_board and config.JIRA_BOARD_ID not in wf.settings:
             raise Exception("Missing Jira Board ID. Run jiraconfig and select a board.")
 
+        selected_board = selected_board if selected_board else wf.settings[config.JIRA_BOARD_ID]
+
         issues = client.get_issues_for_board(
-            board_id=wf.settings[config.JIRA_BOARD_ID],
+            board_id=selected_board,
             jql=JQL_QUERY,
             fields=["status", "key", "description", "summary"],
         )
 
         conf = client.get_configuration_for_board(
-            board_id=wf.settings[config.JIRA_BOARD_ID]
+            board_id=selected_board
         )
 
         id_to_category = {}
@@ -55,7 +59,7 @@ class BoardRunner(BaseRunner):
 
         board_jira_url = urljoin(
             wf.settings[config.JIRA_URL],
-            "secure/RapidBoard.jspa?rapidView=%s" % wf.settings[config.JIRA_BOARD_ID]
+            "secure/RapidBoard.jspa?rapidView=%s" % selected_board
         )
 
         wf.add_item(title="View In Jira", icon=ICON_WEB, arg=board_jira_url, valid=True)
@@ -79,6 +83,7 @@ class BoardPickerRunner(BaseRunner):
         )
 
         boards = client.get_boards()
+        sorted(boards, key=lambda x: x["name"])
 
         for board in boards:
             wf.add_item(title=board["name"], arg=str(board["id"]), valid=True)

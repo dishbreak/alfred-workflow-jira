@@ -8,6 +8,19 @@
 	<string>Productivity</string>
 	<key>connections</key>
 	<dict>
+		<key>0379329C-68F7-4B71-B412-49CE5EB5C511</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>C9A02EA8-482C-4977-AB49-3888608E5331</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>06864344-A779-440B-A1D0-5D7A632812D2</key>
 		<array>
 			<dict>
@@ -466,6 +479,42 @@
 				<false/>
 			</dict>
 		</array>
+		<key>C9A02EA8-482C-4977-AB49-3888608E5331</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>9BFD8BB8-A8FA-444E-9711-B3C64B3D7A15</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>CE4ABE45-B3C0-4223-BD8E-6718D8C0FBBC</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>53504103-BE6D-407A-B813-091A18A24706</string>
+				<key>modifiers</key>
+				<integer>131072</integer>
+				<key>modifiersubtext</key>
+				<string>Paste to underlying app</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>2DB5A15E-8C03-45CA-8020-4F58EAEDE015</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>CF1970A2-FFA2-4155-95C6-2399D9268BAE</key>
 		<array>
 			<dict>
@@ -596,6 +645,29 @@
 				<false/>
 			</dict>
 		</array>
+		<key>FAB321CE-7791-460B-ADF6-97E2A360AC4D</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>0379329C-68F7-4B71-B412-49CE5EB5C511</string>
+				<key>modifiers</key>
+				<integer>131072</integer>
+				<key>modifiersubtext</key>
+				<string>Open in Browser</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>CE4ABE45-B3C0-4223-BD8E-6718D8C0FBBC</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>FB7245E1-A79D-4146-B808-502111F70354</key>
 		<array>
 			<dict>
@@ -636,52 +708,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>script</key>
-				<string>python url_builder.py issue "$1"</string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>type</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>2C1DAD64-94CA-4591-8D37-1ABCD391C5C6</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>script</key>
-				<string>python url_builder.py issue "$1"</string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>type</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>DB3E19E4-7C79-4852-B193-23AB9139D64D</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>argumenttype</key>
 				<integer>0</integer>
 				<key>keyword</key>
@@ -703,25 +729,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>argumenttype</key>
-				<integer>0</integer>
-				<key>subtext</key>
-				<string></string>
-				<key>text</key>
-				<string>Enter Jira Ticket Number</string>
-				<key>withspace</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
-			<key>uid</key>
-			<string>FC970E53-35D9-4038-AA16-763556F598B3</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>autopaste</key>
 				<true/>
 				<key>clipboardtext</key>
@@ -735,40 +742,6 @@
 			<string>7B655556-FA71-4FB9-A6C6-2B93DD8E3AF1</string>
 			<key>version</key>
 			<integer>3</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>autopaste</key>
-				<true/>
-				<key>clipboardtext</key>
-				<string>[Jira Link]({query})</string>
-				<key>transient</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.clipboard</string>
-			<key>uid</key>
-			<string>93F2ED66-4BC4-4215-898F-E124057C2978</string>
-			<key>version</key>
-			<integer>3</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>focusedappvariable</key>
-				<false/>
-				<key>focusedappvariablename</key>
-				<string></string>
-				<key>keyword</key>
-				<string>jiralink</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.trigger.snippet</string>
-			<key>uid</key>
-			<string>2B0FC0A1-16CC-4ADD-B650-A4C50218AF36</string>
-			<key>version</key>
-			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -804,23 +777,101 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>matchmode</key>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>python url_builder.py issue "$1"</string>
+				<key>scriptargtype</key>
 				<integer>1</integer>
-				<key>matchstring</key>
-				<string>\n</string>
-				<key>regexcaseinsensitive</key>
-				<false/>
-				<key>regexmultiline</key>
-				<false/>
-				<key>replacestring</key>
+				<key>scriptfile</key>
 				<string></string>
+				<key>type</key>
+				<integer>0</integer>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.utility.replace</string>
+			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
-			<string>61AD3690-4AA4-4E47-86C0-A07BE07E8547</string>
+			<string>2C1DAD64-94CA-4591-8D37-1ABCD391C5C6</string>
 			<key>version</key>
 			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>subtext</key>
+				<string></string>
+				<key>text</key>
+				<string>Enter Jira Ticket Number</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>FC970E53-35D9-4038-AA16-763556F598B3</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>focusedappvariable</key>
+				<false/>
+				<key>focusedappvariablename</key>
+				<string></string>
+				<key>keyword</key>
+				<string>jiralink</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.snippet</string>
+			<key>uid</key>
+			<string>2B0FC0A1-16CC-4ADD-B650-A4C50218AF36</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>python url_builder.py issue "$1"</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>DB3E19E4-7C79-4852-B193-23AB9139D64D</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<true/>
+				<key>clipboardtext</key>
+				<string>[Jira Link]({query})</string>
+				<key>transient</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>93F2ED66-4BC4-4215-898F-E124057C2978</string>
+			<key>version</key>
+			<integer>3</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -846,6 +897,42 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>matchmode</key>
+				<integer>1</integer>
+				<key>matchstring</key>
+				<string>\n</string>
+				<key>regexcaseinsensitive</key>
+				<false/>
+				<key>regexmultiline</key>
+				<false/>
+				<key>replacestring</key>
+				<string></string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.replace</string>
+			<key>uid</key>
+			<string>61AD3690-4AA4-4E47-86C0-A07BE07E8547</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>soundname</key>
+				<string>Hero</string>
+				<key>systemsound</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.playsound</string>
+			<key>uid</key>
+			<string>2301264A-8B69-4451-A558-3C97130E6CBE</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
@@ -865,21 +952,6 @@
 			<string>D80B8381-23A1-443E-B2F0-67B64EF50317</string>
 			<key>version</key>
 			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>soundname</key>
-				<string>Hero</string>
-				<key>systemsound</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.playsound</string>
-			<key>uid</key>
-			<string>2301264A-8B69-4451-A558-3C97130E6CBE</string>
-			<key>version</key>
-			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -1041,6 +1113,25 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>browser</key>
+				<string></string>
+				<key>spaces</key>
+				<string></string>
+				<key>url</key>
+				<string>{query}</string>
+				<key>utf8</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>EA7A262E-1FBA-41F6-AFE0-48A3A5C691F3</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
@@ -1064,25 +1155,6 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>browser</key>
-				<string></string>
-				<key>spaces</key>
-				<string></string>
-				<key>url</key>
-				<string>{query}</string>
-				<key>utf8</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.openurl</string>
-			<key>uid</key>
-			<string>EA7A262E-1FBA-41F6-AFE0-48A3A5C691F3</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>inputstring</key>
 				<string>{query}</string>
 				<key>matchcasesensitive</key>
@@ -1098,6 +1170,69 @@
 			<string>B8A0C52F-D188-44A0-ABF9-791411DD1AB8</string>
 			<key>version</key>
 			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>browser</key>
+				<string></string>
+				<key>spaces</key>
+				<string></string>
+				<key>url</key>
+				<string>{query}</string>
+				<key>utf8</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>9BFD8BB8-A8FA-444E-9711-B3C64B3D7A15</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>python url_builder.py board $1</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>0379329C-68F7-4B71-B412-49CE5EB5C511</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>matchmode</key>
+				<integer>1</integer>
+				<key>matchstring</key>
+				<string>\n</string>
+				<key>regexcaseinsensitive</key>
+				<false/>
+				<key>regexmultiline</key>
+				<false/>
+				<key>replacestring</key>
+				<string></string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.replace</string>
+			<key>uid</key>
+			<string>C9A02EA8-482C-4977-AB49-3888608E5331</string>
+			<key>version</key>
+			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -1119,6 +1254,72 @@
 			<string>2C7CEDC3-C2A6-4E5C-9B8C-25AD8F75F900</string>
 			<key>version</key>
 			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<true/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<true/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>jiraboard</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Loading results from Jira API...</string>
+				<key>script</key>
+				<string>python board.py get_boards</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string></string>
+				<key>title</key>
+				<string>Open a Jira Board</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>FAB321CE-7791-460B-ADF6-97E2A360AC4D</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<true/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+				<key>transient</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>53504103-BE6D-407A-B813-091A18A24706</string>
+			<key>version</key>
+			<integer>3</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -1217,6 +1418,55 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<true/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string></string>
+				<key>script</key>
+				<string>boardId=$1
+
+python board.py get_board_issues $boardId </string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string></string>
+				<key>title</key>
+				<string>Showing your tickets on Board</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>CE4ABE45-B3C0-4223-BD8E-6718D8C0FBBC</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>inputstring</key>
 				<string>{query}</string>
 				<key>matchcasesensitive</key>
@@ -1245,6 +1495,25 @@
 			<string>alfred.workflow.utility.argument</string>
 			<key>uid</key>
 			<string>3CBBBDFB-55A4-4939-BB15-9E145E77AAD7</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>browser</key>
+				<string></string>
+				<key>spaces</key>
+				<string></string>
+				<key>url</key>
+				<string>{query}</string>
+				<key>utf8</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>2DB5A15E-8C03-45CA-8020-4F58EAEDE015</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -1324,25 +1593,6 @@
 			<key>config</key>
 			<dict>
 				<key>inputstring</key>
-				<string>{var:setup_flow}</string>
-				<key>matchcasesensitive</key>
-				<true/>
-				<key>matchmode</key>
-				<integer>0</integer>
-				<key>matchstring</key>
-				<string>true</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.utility.filter</string>
-			<key>uid</key>
-			<string>1957D281-3A3E-4F9C-A98C-3488E0044713</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>inputstring</key>
 				<string>{query}</string>
 				<key>matchcasesensitive</key>
 				<true/>
@@ -1355,6 +1605,25 @@
 			<string>alfred.workflow.utility.filter</string>
 			<key>uid</key>
 			<string>0CFF9B3A-4BF8-4604-BA17-D6A318788E08</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>inputstring</key>
+				<string>{var:setup_flow}</string>
+				<key>matchcasesensitive</key>
+				<true/>
+				<key>matchmode</key>
+				<integer>0</integer>
+				<key>matchstring</key>
+				<string>true</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.filter</string>
+			<key>uid</key>
+			<string>1957D281-3A3E-4F9C-A98C-3488E0044713</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -1390,6 +1659,25 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>subtext</key>
+				<string>Generate API Token from id.atlassian.net</string>
+				<key>text</key>
+				<string>Set Jira API Token</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>E638B9CE-AADF-46A5-BFCA-A7C76F3D32C4</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
@@ -1409,25 +1697,6 @@
 			<string>4091885B-9841-4845-8F7A-FD23F370563D</string>
 			<key>version</key>
 			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argumenttype</key>
-				<integer>0</integer>
-				<key>subtext</key>
-				<string>Generate API Token from id.atlassian.net</string>
-				<key>text</key>
-				<string>Set Jira API Token</string>
-				<key>withspace</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.keyword</string>
-			<key>uid</key>
-			<string>E638B9CE-AADF-46A5-BFCA-A7C76F3D32C4</string>
-			<key>version</key>
-			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -1525,6 +1794,25 @@ python config.py clear_config abab</string>
 				<key>matchmode</key>
 				<integer>0</integer>
 				<key>matchstring</key>
+				<string>clear_settings</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.filter</string>
+			<key>uid</key>
+			<string>06864344-A779-440B-A1D0-5D7A632812D2</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>inputstring</key>
+				<string>{query}</string>
+				<key>matchcasesensitive</key>
+				<true/>
+				<key>matchmode</key>
+				<integer>0</integer>
+				<key>matchstring</key>
 				<string>clear</string>
 			</dict>
 			<key>type</key>
@@ -1546,25 +1834,6 @@ python config.py clear_config abab</string>
 			<string>alfred.workflow.utility.argument</string>
 			<key>uid</key>
 			<string>3CA79650-8CB8-483D-B48F-966DE8E6EF4C</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>inputstring</key>
-				<string>{query}</string>
-				<key>matchcasesensitive</key>
-				<true/>
-				<key>matchmode</key>
-				<integer>0</integer>
-				<key>matchstring</key>
-				<string>clear_settings</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.utility.filter</string>
-			<key>uid</key>
-			<string>06864344-A779-440B-A1D0-5D7A632812D2</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -1641,6 +1910,21 @@ python config.py clear_config abab</string>
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>argument</key>
+				<string></string>
+				<key>variables</key>
+				<dict/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>BE0532BA-82A1-48B5-8ECF-85DA74634F66</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>inputstring</key>
 				<string>{query}</string>
 				<key>matchcasesensitive</key>
@@ -1657,26 +1941,18 @@ python config.py clear_config abab</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>argument</key>
-				<string></string>
-				<key>variables</key>
-				<dict/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.utility.argument</string>
-			<key>uid</key>
-			<string>BE0532BA-82A1-48B5-8ECF-85DA74634F66</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
 	</array>
 	<key>readme</key>
-	<string></string>
+	<string>Run the `jirasetup` keyword after installing to complete your setup.</string>
 	<key>uidata</key>
 	<dict>
+		<key>0379329C-68F7-4B71-B412-49CE5EB5C511</key>
+		<dict>
+			<key>xpos</key>
+			<integer>1305</integer>
+			<key>ypos</key>
+			<integer>410</integer>
+		</dict>
 		<key>06864344-A779-440B-A1D0-5D7A632812D2</key>
 		<dict>
 			<key>xpos</key>
@@ -1761,6 +2037,13 @@ python config.py clear_config abab</string>
 			<key>ypos</key>
 			<integer>490</integer>
 		</dict>
+		<key>2DB5A15E-8C03-45CA-8020-4F58EAEDE015</key>
+		<dict>
+			<key>xpos</key>
+			<integer>1590</integer>
+			<key>ypos</key>
+			<integer>705</integer>
+		</dict>
 		<key>3CA79650-8CB8-483D-B48F-966DE8E6EF4C</key>
 		<dict>
 			<key>xpos</key>
@@ -1781,6 +2064,13 @@ python config.py clear_config abab</string>
 			<integer>700</integer>
 			<key>ypos</key>
 			<integer>1000</integer>
+		</dict>
+		<key>53504103-BE6D-407A-B813-091A18A24706</key>
+		<dict>
+			<key>xpos</key>
+			<integer>1595</integer>
+			<key>ypos</key>
+			<integer>545</integer>
 		</dict>
 		<key>580137DB-CEC5-439E-8ACA-46B6F06B4A61</key>
 		<dict>
@@ -1866,6 +2156,13 @@ python config.py clear_config abab</string>
 			<key>ypos</key>
 			<integer>1210</integer>
 		</dict>
+		<key>9BFD8BB8-A8FA-444E-9711-B3C64B3D7A15</key>
+		<dict>
+			<key>xpos</key>
+			<integer>1535</integer>
+			<key>ypos</key>
+			<integer>405</integer>
+		</dict>
 		<key>A9FB1BCB-2E3E-4833-AC07-05181B870A0D</key>
 		<dict>
 			<key>xpos</key>
@@ -1921,6 +2218,20 @@ python config.py clear_config abab</string>
 			<integer>260</integer>
 			<key>ypos</key>
 			<integer>310</integer>
+		</dict>
+		<key>C9A02EA8-482C-4977-AB49-3888608E5331</key>
+		<dict>
+			<key>xpos</key>
+			<integer>1470</integer>
+			<key>ypos</key>
+			<integer>435</integer>
+		</dict>
+		<key>CE4ABE45-B3C0-4223-BD8E-6718D8C0FBBC</key>
+		<dict>
+			<key>xpos</key>
+			<integer>1320</integer>
+			<key>ypos</key>
+			<integer>680</integer>
 		</dict>
 		<key>CF1970A2-FFA2-4155-95C6-2399D9268BAE</key>
 		<dict>
@@ -1999,6 +2310,13 @@ python config.py clear_config abab</string>
 			<key>ypos</key>
 			<integer>1030</integer>
 		</dict>
+		<key>FAB321CE-7791-460B-ADF6-97E2A360AC4D</key>
+		<dict>
+			<key>xpos</key>
+			<integer>1120</integer>
+			<key>ypos</key>
+			<integer>495</integer>
+		</dict>
 		<key>FB7245E1-A79D-4146-B808-502111F70354</key>
 		<dict>
 			<key>xpos</key>
@@ -2014,6 +2332,10 @@ python config.py clear_config abab</string>
 			<integer>50</integer>
 		</dict>
 	</dict>
+	<key>variablesdontexport</key>
+	<array/>
+	<key>version</key>
+	<string>0.1.0</string>
 	<key>webaddress</key>
 	<string>kotcherlakota.org</string>
 </dict>
