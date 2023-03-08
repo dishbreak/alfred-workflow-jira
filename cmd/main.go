@@ -25,6 +25,13 @@ var cli struct {
 		SetToken    SetTokenCmd    `cmd:"set-token" help:"save an API token"`
 		ForgetToken ForgetTokenCmd `cmd:"forget-token" help:"clear an API token"`
 	} `cmd:"setup" help:"commands used to configure workflow"`
+	Board struct {
+		ListBoards ListBoardsCmd         `cmd:"list-boards" help:"list all matching boards"`
+		ListIssues ListIssuesForBoardCmd `cmd:"list-issues" help:"list all issues on the given board"`
+	} `cmd:"board" help:"commands used to interact with boards"`
+	Issue struct {
+		List ListIssuesCmd `cmd:"list" help:"list issues matching the given query"`
+	} `cmd:"issue" help:"commands used to interact with issues"`
 }
 
 const (
