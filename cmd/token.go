@@ -1,13 +1,9 @@
 package main
 
 import (
-	"bufio"
-	"fmt"
 	"io/ioutil"
 	"os"
 	"strings"
-
-	"github.com/dishbreak/go-alfred/alfred"
 )
 
 type SetTokenCmd struct{}
@@ -18,23 +14,20 @@ const (
 
 func (s *SetTokenCmd) Run(ctx *Context) error {
 
-	alfred.RunScriptAction(func(sar *alfred.ScriptActionResponse) error {
+	ctx.wf.Run(func() {
 		var token string
-		if stat, _ := os.Stdin.Stat(); (stat.Mode() & os.ModeCharDevice) == 0 {
-			b, err := ioutil.ReadAll(os.Stdin)
-			if err != nil {
-				panic(err)
-			}
-			token = string(b)
-		} else {
-			fmt.Println("Enter user token. Press <ENTER> when done.")
-			reader := bufio.NewReader(os.Stdin)
-			token, _ = reader.ReadString('\n')
+		b, err := ioutil.ReadAll(os.Stdin)
+		if err != nil {
+			panic(err)
 		}
+		token = string(b)
 
 		token = strings.TrimSpace(token)
 
-		return ctx.wf.SaveSecret(JiraApiToken, token)
+		err = ctx.wf.Keychain.Set(JiraApiToken, token)
+		if err != nil {
+			panic(err)
+		}
 	})
 	return nil
 }
@@ -53,10 +46,11 @@ When run outside of a pipe, the command will prompt you for a token on input.
 type ForgetTokenCmd struct{}
 
 func (f *ForgetTokenCmd) Run(ctx *Context) error {
-	alfred.RunScriptAction(func(sar *alfred.ScriptActionResponse) error {
-		return ctx.wf.DeleteSecret(JiraApiToken)
+	ctx.wf.Run(func() {
+		if err := ctx.wf.Keychain.Delete(JiraApiToken); err != nil {
+			panic(err)
+		}
 	})
-
 	return nil
 }
 

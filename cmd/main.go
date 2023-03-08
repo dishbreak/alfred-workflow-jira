@@ -1,13 +1,17 @@
 package main
 
 import (
+	"fmt"
+	"net/url"
+
 	"github.com/alecthomas/kong"
 	"github.com/andygrunwald/go-jira"
-	"github.com/dishbreak/go-alfred/alfred"
+	aw "github.com/deanishe/awgo"
 )
 
 type Context struct {
-	wf *alfred.Workflow
+	wf      *aw.Workflow
+	baseUrl *url.URL
 }
 
 type CtxErr string
@@ -20,7 +24,6 @@ var cli struct {
 	Setup struct {
 		SetToken    SetTokenCmd    `cmd:"set-token" help:"save an API token"`
 		ForgetToken ForgetTokenCmd `cmd:"forget-token" help:"clear an API token"`
-		SetConfig   SetConfigCmd   `cmd:"set-config" help:"set a config value"`
 	} `cmd:"setup" help:"commands used to configure workflow"`
 }
 
@@ -29,17 +32,17 @@ const (
 )
 
 func (ctx *Context) GetJiraClient() (*jira.Client, error) {
-	userName := ctx.wf.GetConfigString(JiraUsername, "unset")
+	userName := ctx.wf.Config.Get(JiraUsername, "unset")
 	if userName == "unset" {
 		return nil, ErrConfigNotSet
 	}
 
-	url := ctx.wf.GetConfigString(JiraUrl, "unset")
+	url := ctx.wf.Config.Get(JiraUrl, "unset")
 	if userName == "unset" {
 		return nil, ErrConfigNotSet
 	}
 
-	token, err := ctx.wf.GetSecret(JiraApiToken)
+	token, err := ctx.wf.Keychain.Get(JiraApiToken)
 	if err != nil {
 		return nil, err
 	}
@@ -52,19 +55,30 @@ func (ctx *Context) GetJiraClient() (*jira.Client, error) {
 	return jira.NewClient(tp.Client(), url)
 }
 
+func (c *Context) RenderIssue(issue *jira.Issue) {
+	issueUrl, _ := c.baseUrl.Parse("browse/" + issue.Key)
+	item := c.wf.NewItem(fmt.Sprintf("%s: %s", issue.Key, issue.Fields.Summary))
+	item.Subtitle(truncate(issue.Fields.Description, 80, "No description given."))
+	item.Arg(issueUrl.String()).Valid(true)
+}
+
 const (
 	workflowName = "jira-browser"
 )
 
 func main() {
-	wf, err := alfred.NewWorkflow(workflowName)
+	wf := aw.New()
+
+	baseUrl := wf.Config.Get(JiraUrl, "")
+	u, err := url.Parse(baseUrl)
 	if err != nil {
 		panic(err)
 	}
 
 	ctx := kong.Parse(&cli)
 	err = ctx.Run(&Context{
-		wf: wf,
+		wf:      wf,
+		baseUrl: u,
 	})
 	ctx.FatalIfErrorf(err)
 }
