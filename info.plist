@@ -329,7 +329,7 @@
 				<key>autopaste</key>
 				<true/>
 				<key>clipboardtext</key>
-				<string>{var:jira_url}/browse/{query}</string>
+				<string>{var:jira_url}browse/{query}</string>
 				<key>ignoredynamicplaceholders</key>
 				<false/>
 				<key>transient</key>
@@ -455,7 +455,7 @@
 				<key>spaces</key>
 				<string></string>
 				<key>url</key>
-				<string>{query}</string>
+				<string>{var:jira_url}browse/{query}</string>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.action.openurl</string>
@@ -492,7 +492,7 @@
 				<key>runningsubtext</key>
 				<string>Getting results from Jira API...</string>
 				<key>script</key>
-				<string>python board.py get_board_issues</string>
+				<string>./alfred-jira board list-issues</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -593,7 +593,7 @@
 				<key>spaces</key>
 				<string></string>
 				<key>url</key>
-				<string>{var:jira_url}/issues?=jql={var:my_issues_jql}</string>
+				<string>{var:jira_url}issues?=jql={var:my_issues_jql}</string>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.action.openurl</string>
@@ -1239,7 +1239,7 @@ python board.py get_board_issues $boardId </string>
 	<key>variables</key>
 	<dict>
 		<key>jira_board</key>
-		<string>571</string>
+		<string>388</string>
 	</dict>
 	<key>variablesdontexport</key>
 	<array/>
