@@ -1236,6 +1236,13 @@ python board.py get_board_issues $boardId </string>
 			<string>my_issues_jql</string>
 		</dict>
 	</array>
+	<key>variables</key>
+	<dict>
+		<key>jira_board</key>
+		<string>571</string>
+	</dict>
+	<key>variablesdontexport</key>
+	<array/>
 	<key>version</key>
 	<string>0.1.0</string>
 	<key>webaddress</key>

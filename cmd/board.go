@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"log"
 	"strconv"
@@ -48,7 +49,7 @@ func (s *SaveFavoriteBoardCmd) Run(ctx *Context) error {
 }
 
 type ListIssuesForBoardCmd struct {
-	BoardID int `arg:"" required:""`
+	BoardID int `arg:"" default:"-1"`
 }
 
 func (l *ListIssuesForBoardCmd) Run(ctx *Context) error {
@@ -56,6 +57,14 @@ func (l *ListIssuesForBoardCmd) Run(ctx *Context) error {
 		j, err := ctx.GetJiraClient()
 		if err != nil {
 			panic(err)
+		}
+
+		if l.BoardID == -1 {
+			l.BoardID = ctx.wf.Config.GetInt(JiraBoard, -1)
+		}
+
+		if l.BoardID == -1 {
+			panic(errors.New("no board specified"))
 		}
 
 		b, _, err := j.Board.GetBoard(l.BoardID)
