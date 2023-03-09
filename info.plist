@@ -1239,7 +1239,7 @@ python board.py get_board_issues $boardId </string>
 	<key>variables</key>
 	<dict>
 		<key>jira_board</key>
-		<string>388</string>
+		<string>565</string>
 	</dict>
 	<key>variablesdontexport</key>
 	<array/>

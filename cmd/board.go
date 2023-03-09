@@ -51,6 +51,7 @@ func (s *SaveFavoriteBoardCmd) Run(ctx *Context) error {
 		if err != nil {
 			panic(err)
 		}
+
 	})
 	return nil
 }
