@@ -5,3 +5,5 @@
 
 *.pyc
 *.alfredworkflow
+prefs.plist
+alfred-jira
