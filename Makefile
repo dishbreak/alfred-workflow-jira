@@ -1,12 +1,18 @@
-.PHONY: clean
+.PHONY: build clean archive
+
+build: alfred-jira
+
+alfred-jira:
+	go build -o alfred-jira ./cmd/
 
 clean:
-	find . -name "*.pyc" -delete
-	rm *.alfredworkflow
-	rm -rf workflow/
+	rm -rf dist/
 
-workflow:
-	pip install --target . alfred-workflow==1.36
+jira-for-alfred.alfredworkflow: icon.png info.plist alfred-jira
+	mkdir dist
+	cp icon.png dist/
+	cp info.plist dist/
+	cp alfred-jira dist/
+	cd dist && zip -r ../jira-for-alfred.alfredworkflow .
 
-jira-for-alfred.alfredworkflow: workflow
-	zip -r jira-for-alfred.alfredworkflow .
+archive: jira-for-alfred.alfredworkflow

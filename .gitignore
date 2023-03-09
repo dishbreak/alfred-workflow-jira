@@ -7,3 +7,4 @@
 *.alfredworkflow
 prefs.plist
 alfred-jira
+dist/
