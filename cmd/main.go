@@ -26,8 +26,9 @@ var cli struct {
 		ForgetToken ForgetTokenCmd `cmd:"forget-token" help:"clear an API token"`
 	} `cmd:"setup" help:"commands used to configure workflow"`
 	Board struct {
-		ListBoards ListBoardsCmd         `cmd:"list-boards" help:"list all matching boards"`
-		ListIssues ListIssuesForBoardCmd `cmd:"list-issues" help:"list all issues on the given board"`
+		ListBoards  ListBoardsCmd         `cmd:"list-boards" help:"list all matching boards"`
+		ListIssues  ListIssuesForBoardCmd `cmd:"list-issues" help:"list all issues on the given board"`
+		SetFavorite SaveFavoriteBoardCmd  `cmd:"set-favorite" help:"set a favorite board"`
 	} `cmd:"board" help:"commands used to interact with boards"`
 	Issue struct {
 		List ListIssuesCmd `cmd:"list" help:"list issues matching the given query"`

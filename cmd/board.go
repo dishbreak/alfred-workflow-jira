@@ -33,6 +33,20 @@ func (l *ListBoardsCmd) Run(ctx *Context) error {
 	return nil
 }
 
+type SaveFavoriteBoardCmd struct {
+	BoardID int `arg:"" required:""`
+}
+
+func (s *SaveFavoriteBoardCmd) Run(ctx *Context) error {
+	ctx.wf.Run(func() {
+		err := ctx.wf.Config.Set(JiraBoard, fmt.Sprintf("%d", s.BoardID), true).Do()
+		if err != nil {
+			panic(err)
+		}
+	})
+	return nil
+}
+
 type ListIssuesForBoardCmd struct {
 	BoardID int `arg:"" required:""`
 }

@@ -35,7 +35,7 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>ADEB2CC2-8D68-4F75-94A5-F787396BD689</string>
+				<string>E2BF2B7F-1B2B-4CC9-A271-1A5366C45D82</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -195,6 +195,19 @@
 			<dict>
 				<key>destinationuid</key>
 				<string>2DB5A15E-8C03-45CA-8020-4F58EAEDE015</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>E2BF2B7F-1B2B-4CC9-A271-1A5366C45D82</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>ADEB2CC2-8D68-4F75-94A5-F787396BD689</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -402,7 +415,7 @@
 				<key>autopaste</key>
 				<true/>
 				<key>clipboardtext</key>
-				<string>[Jira Link]({var:jira_url}/browse/{query})</string>
+				<string>[Jira Link]({var:jira_url}browse/{query})</string>
 				<key>ignoredynamicplaceholders</key>
 				<false/>
 				<key>transient</key>
@@ -770,6 +783,52 @@ python board.py get_board_issues $boardId </string>
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>conditions</key>
+				<array>
+					<dict>
+						<key>inputstring</key>
+						<string>{var:menu_select}</string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>0</integer>
+						<key>matchstring</key>
+						<string>set_token</string>
+						<key>outputlabel</key>
+						<string>set_token</string>
+						<key>uid</key>
+						<string>B5658BBE-6B5E-4ADF-9BCE-0D0959EF5B78</string>
+					</dict>
+					<dict>
+						<key>inputstring</key>
+						<string>{var:menu_select}</string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>0</integer>
+						<key>matchstring</key>
+						<string>set_board</string>
+						<key>outputlabel</key>
+						<string>set_board</string>
+						<key>uid</key>
+						<string>A818C23F-AC99-4FBD-8E62-8CEF7AFB9867</string>
+					</dict>
+				</array>
+				<key>elselabel</key>
+				<string>else</string>
+				<key>hideelse</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.conditional</string>
+			<key>uid</key>
+			<string>ADEB2CC2-8D68-4F75-94A5-F787396BD689</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>argumenttrimmode</key>
 				<integer>0</integer>
 				<key>argumenttype</key>
@@ -801,52 +860,6 @@ python board.py get_board_issues $boardId </string>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>conditions</key>
-				<array>
-					<dict>
-						<key>inputstring</key>
-						<string></string>
-						<key>matchcasesensitive</key>
-						<false/>
-						<key>matchmode</key>
-						<integer>0</integer>
-						<key>matchstring</key>
-						<string>set_token</string>
-						<key>outputlabel</key>
-						<string>set_token</string>
-						<key>uid</key>
-						<string>B5658BBE-6B5E-4ADF-9BCE-0D0959EF5B78</string>
-					</dict>
-					<dict>
-						<key>inputstring</key>
-						<string></string>
-						<key>matchcasesensitive</key>
-						<false/>
-						<key>matchmode</key>
-						<integer>0</integer>
-						<key>matchstring</key>
-						<string>set_board</string>
-						<key>outputlabel</key>
-						<string>set_board</string>
-						<key>uid</key>
-						<string>A818C23F-AC99-4FBD-8E62-8CEF7AFB9867</string>
-					</dict>
-				</array>
-				<key>elselabel</key>
-				<string>else</string>
-				<key>hideelse</key>
-				<false/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.utility.conditional</string>
-			<key>uid</key>
-			<string>ADEB2CC2-8D68-4F75-94A5-F787396BD689</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>argumenttype</key>
 				<integer>0</integer>
 				<key>subtext</key>
@@ -871,7 +884,7 @@ python board.py get_board_issues $boardId </string>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>echo "$*" | go run ./cmd/ setup set-token</string>
+				<string>echo "$*" | ./alfred-jira setup set-token</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -889,12 +902,32 @@ python board.py get_board_issues $boardId </string>
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>argument</key>
+				<string></string>
+				<key>passthroughargument</key>
+				<false/>
+				<key>variables</key>
+				<dict>
+					<key>menu_select</key>
+					<string>{query}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>E2BF2B7F-1B2B-4CC9-A271-1A5366C45D82</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>concurrently</key>
 				<false/>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>python config.py set_board $1</string>
+				<string>./alfred-jira board set-favorite $1</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -935,7 +968,7 @@ python board.py get_board_issues $boardId </string>
 				<key>runningsubtext</key>
 				<string>Getting boards from Jira API...</string>
 				<key>script</key>
-				<string>python board.py get_boards</string>
+				<string>./alfred-jira board list-boards</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -971,9 +1004,9 @@ python board.py get_board_issues $boardId </string>
 		<key>1B95671C-AFA4-4411-8479-0FE7B6A8689E</key>
 		<dict>
 			<key>xpos</key>
-			<real>40</real>
+			<real>30</real>
 			<key>ypos</key>
-			<real>905</real>
+			<real>910</real>
 		</dict>
 		<key>2301264A-8B69-4451-A558-3C97130E6CBE</key>
 		<dict>
@@ -1062,7 +1095,7 @@ python board.py get_board_issues $boardId </string>
 		<key>ADEB2CC2-8D68-4F75-94A5-F787396BD689</key>
 		<dict>
 			<key>xpos</key>
-			<real>235</real>
+			<real>275</real>
 			<key>ypos</key>
 			<real>910</real>
 		</dict>
@@ -1086,6 +1119,13 @@ python board.py get_board_issues $boardId </string>
 			<real>1320</real>
 			<key>ypos</key>
 			<real>680</real>
+		</dict>
+		<key>E2BF2B7F-1B2B-4CC9-A271-1A5366C45D82</key>
+		<dict>
+			<key>xpos</key>
+			<real>185</real>
+			<key>ypos</key>
+			<real>930</real>
 		</dict>
 		<key>E60CA986-311B-4343-9BAB-D62ADEA48327</key>
 		<dict>
@@ -1145,7 +1185,7 @@ python board.py get_board_issues $boardId </string>
 				<true/>
 			</dict>
 			<key>description</key>
-			<string>The URL for the root of the Jira instance</string>
+			<string>The URL for the root of the Jira instance, ending in a slash.</string>
 			<key>label</key>
 			<string>Jira URL</string>
 			<key>type</key>

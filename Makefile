@@ -1,14 +1,12 @@
 .PHONY: build clean archive
 
-build: alfred-jira
-
-alfred-jira:
+build: 
 	go build -o alfred-jira ./cmd/
 
 clean:
 	rm -rf dist/
 
-jira-for-alfred.alfredworkflow: icon.png info.plist alfred-jira
+jira-for-alfred.alfredworkflow: icon.png info.plist build
 	mkdir dist
 	cp icon.png dist/
 	cp info.plist dist/
