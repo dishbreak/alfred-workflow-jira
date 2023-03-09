@@ -18,14 +18,21 @@ func (l *ListBoardsCmd) Run(ctx *Context) error {
 			panic(err)
 		}
 
-		boards, _, err := j.Board.GetAllBoards(&jira.BoardListOptions{})
-		if err != nil {
-			panic(err)
-		}
+		for startAt := 0; ; {
+			boards, _, err := j.Board.GetAllBoards(&jira.BoardListOptions{SearchOptions: jira.SearchOptions{StartAt: startAt}})
+			if err != nil {
+				panic(err)
+			}
 
-		for _, board := range boards.Values {
-			it := ctx.wf.NewItem(board.Name)
-			it.Arg(strconv.Itoa(board.ID)).Valid(true)
+			for _, board := range boards.Values {
+				it := ctx.wf.NewItem(board.Name)
+				it.Arg(strconv.Itoa(board.ID)).Valid(true)
+			}
+
+			startAt += len(boards.Values)
+			if startAt >= boards.Total {
+				break
+			}
 		}
 
 		ctx.wf.SendFeedback()
@@ -49,7 +56,7 @@ func (s *SaveFavoriteBoardCmd) Run(ctx *Context) error {
 }
 
 type ListIssuesForBoardCmd struct {
-	BoardID int `arg:"" default:"-1"`
+	BoardID int `default:"-1"`
 }
 
 func (l *ListIssuesForBoardCmd) Run(ctx *Context) error {
@@ -69,14 +76,18 @@ func (l *ListIssuesForBoardCmd) Run(ctx *Context) error {
 
 		b, _, err := j.Board.GetBoard(l.BoardID)
 		if err != nil {
-			panic(err)
+			panic(fmt.Errorf("failed to get board: %w", err))
 		}
+
+		log.Println(b)
 
 		query := fmt.Sprintf("filter = %d AND sprint in openSprints() and sprint not in futureSprints() and assignee in (currentUser())", b.FilterID)
 
+		log.Printf("using query: %s", query)
+
 		conf, _, err := j.Board.GetBoardConfiguration(l.BoardID)
 		if err != nil {
-			panic(err)
+			panic(fmt.Errorf("failed to get board config: %w", err))
 		}
 
 		stateMap := make(map[string]string)
@@ -108,6 +119,8 @@ func (l *ListIssuesForBoardCmd) Run(ctx *Context) error {
 				break
 			}
 		}
+
+		log.Printf("found %d issue(s) in board %d", len(issues), l.BoardID)
 
 		for _, issue := range issues {
 			colName, ok := stateMap[issue.Fields.Status.ID]

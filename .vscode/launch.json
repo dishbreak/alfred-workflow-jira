@@ -1,0 +1,23 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "list-boards",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "${workspaceFolder}/cmd/",
+            "env": {
+                "alfred_workflow_bundleid": "com.dishbreak.jiraworkflow",
+                "alfred_workflow_data": "${workspaceFolder}/testenv/data",
+                "alfred_workflow_cache": "${workspaceFolder}/testenv/cache",
+                "jira_username": "vkotcherlakota@nerdwallet.com",
+                "jira_url": "https://nerdwallet.atlassian.net/"
+            },
+            "args": ["board", "list-boards"]
+        }
+    ]
+}
