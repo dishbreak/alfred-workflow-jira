@@ -7,6 +7,7 @@ import (
 	"strconv"
 
 	"github.com/andygrunwald/go-jira"
+	aw "github.com/deanishe/awgo"
 )
 
 type ListBoardsCmd struct{}
@@ -57,8 +58,21 @@ func (s *SaveFavoriteBoardCmd) Run(ctx *Context) error {
 }
 
 type ListIssuesForBoardCmd struct {
-	BoardID int `default:"-1"`
+	BoardID      int `default:"-1"`
+	OnlyMyIssues bool
 }
+
+type issuesForBoardResp struct {
+	StartAt    int          `json:"startAt"`
+	MaxResults int          `json:"maxResults"`
+	Total      int          `json:"total"`
+	Issues     []jira.Issue `json:"issues"`
+}
+
+const (
+	BoardJql     = "Sprint in openSprints() AND Sprint not in futureSprints()"
+	OnlyMyIssues = " AND assignee=currentUser()"
+)
 
 func (l *ListIssuesForBoardCmd) Run(ctx *Context) error {
 	ctx.wf.Run(func() {
@@ -72,19 +86,8 @@ func (l *ListIssuesForBoardCmd) Run(ctx *Context) error {
 		}
 
 		if l.BoardID == -1 {
-			panic(errors.New("no board specified"))
+			panic(errors.New("no board id set"))
 		}
-
-		b, _, err := j.Board.GetBoard(l.BoardID)
-		if err != nil {
-			panic(fmt.Errorf("failed to get board: %w", err))
-		}
-
-		log.Println(b)
-
-		query := fmt.Sprintf("filter = %d AND sprint in openSprints() and sprint not in futureSprints() and assignee in (currentUser())", b.FilterID)
-
-		log.Printf("using query: %s", query)
 
 		conf, _, err := j.Board.GetBoardConfiguration(l.BoardID)
 		if err != nil {
@@ -102,21 +105,31 @@ func (l *ListIssuesForBoardCmd) Run(ctx *Context) error {
 		}
 
 		issues := make([]jira.Issue, 0)
-		paginate := func(startAt int) *jira.SearchOptions {
-			return &jira.SearchOptions{
-				StartAt: startAt,
-			}
+
+		jql := BoardJql
+		if l.OnlyMyIssues {
+			jql += OnlyMyIssues
 		}
 
 		for startAt := 0; ; {
-			list, resp, err := j.Issue.Search(query, paginate(startAt))
+			r, err := j.NewRequest("GET", fmt.Sprintf("/rest/agile/1.0/board/%d/issue", l.BoardID), nil)
 			if err != nil {
-				panic(err)
+				panic(fmt.Errorf("failed to form api request: %w", err))
+			}
+			q := r.URL.Query()
+			q.Add("startAt", strconv.Itoa(startAt))
+			q.Add("jql", jql)
+			r.URL.RawQuery = q.Encode()
+
+			var result issuesForBoardResp
+			_, err = j.Do(r, &result)
+			if err != nil {
+				panic(fmt.Errorf("failed to get issues for board: %w", err))
 			}
 
-			issues = append(issues, list...)
-			startAt += resp.Total
-			if startAt > resp.MaxResults {
+			issues = append(issues, result.Issues...)
+			startAt += len(result.Issues)
+			if startAt >= result.Total {
 				break
 			}
 		}
@@ -134,7 +147,7 @@ func (l *ListIssuesForBoardCmd) Run(ctx *Context) error {
 		}
 
 		for _, column := range conf.ColumnConfig.Columns {
-			ctx.wf.NewItem(column.Name)
+			ctx.wf.NewItem(column.Name).Icon(aw.IconGroup)
 			for _, issue := range issuesByCol[column.Name] {
 				ctx.RenderIssue(&issue)
 			}

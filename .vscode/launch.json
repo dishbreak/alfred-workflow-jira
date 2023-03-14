@@ -18,6 +18,21 @@
                 "jira_url": "https://nerdwallet.atlassian.net/"
             },
             "args": ["board", "list-boards"]
+        },
+        {
+            "name": "list-board-issues",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "${workspaceFolder}/cmd/",
+            "env": {
+                "alfred_workflow_bundleid": "com.dishbreak.jiraworkflow",
+                "alfred_workflow_data": "${workspaceFolder}/testenv/data",
+                "alfred_workflow_cache": "${workspaceFolder}/testenv/cache",
+                "jira_username": "vkotcherlakota@nerdwallet.com",
+                "jira_url": "https://nerdwallet.atlassian.net/"
+            },
+            "args": ["board", "list-issues", "--board-id", "565"]
         }
     ]
 }

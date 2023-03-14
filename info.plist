@@ -492,7 +492,7 @@
 				<key>runningsubtext</key>
 				<string>Getting results from Jira API...</string>
 				<key>script</key>
-				<string>./alfred-jira board list-issues</string>
+				<string>./alfred-jira board list-issues --only-my-issues</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -1239,7 +1239,7 @@ python board.py get_board_issues $boardId </string>
 	<key>variables</key>
 	<dict>
 		<key>jira_board</key>
-		<string>565</string>
+		<string>576</string>
 	</dict>
 	<key>variablesdontexport</key>
 	<array/>
