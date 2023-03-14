@@ -261,9 +261,9 @@
 				<key>destinationuid</key>
 				<string>9BFD8BB8-A8FA-444E-9711-B3C64B3D7A15</string>
 				<key>modifiers</key>
-				<integer>0</integer>
+				<integer>131072</integer>
 				<key>modifiersubtext</key>
-				<string></string>
+				<string>Open Board in Browser</string>
 				<key>vitoclose</key>
 				<false/>
 			</dict>
@@ -670,7 +670,7 @@
 				<key>runningsubtext</key>
 				<string>Loading results from Jira API...</string>
 				<key>script</key>
-				<string>python board.py get_boards</string>
+				<string>./alfred-jira board list-boards</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -736,9 +736,7 @@
 				<key>runningsubtext</key>
 				<string></string>
 				<key>script</key>
-				<string>boardId=$1
-
-python board.py get_board_issues $boardId </string>
+				<string>./alfred-jira board list-issues --board-id $1</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
@@ -746,7 +744,7 @@ python board.py get_board_issues $boardId </string>
 				<key>subtext</key>
 				<string></string>
 				<key>title</key>
-				<string>Showing your tickets on Board</string>
+				<string>Showing Board Issues</string>
 				<key>type</key>
 				<integer>0</integer>
 				<key>withspace</key>
