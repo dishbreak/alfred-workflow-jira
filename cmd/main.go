@@ -70,10 +70,6 @@ func (c *Context) RenderIssue(issue *jira.Issue) {
 	item.Arg(issueUrl.String()).Valid(true)
 }
 
-const (
-	workflowName = "jira-browser"
-)
-
 func main() {
 	wf := aw.New()
 

@@ -1,7 +1,7 @@
 package main
 
 import (
-	"io/ioutil"
+	"io"
 	"os"
 	"strings"
 )
@@ -16,7 +16,7 @@ func (s *SetTokenCmd) Run(ctx *Context) error {
 
 	ctx.wf.Run(func() {
 		var token string
-		b, err := ioutil.ReadAll(os.Stdin)
+		b, err := io.ReadAll(os.Stdin)
 		if err != nil {
 			panic(err)
 		}
