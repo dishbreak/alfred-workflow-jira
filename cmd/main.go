@@ -33,6 +33,9 @@ var cli struct {
 	Issue struct {
 		List ListIssuesCmd `cmd:"list" help:"list issues matching the given query"`
 	} `cmd:"issue" help:"commands used to interact with issues"`
+	Filter struct {
+		List ListFiltersCmd `cmd:"list" help:"list starred filters for the current user"`
+	} `cmd:"filter" help:"view and manage Jira filters"`
 }
 
 const (

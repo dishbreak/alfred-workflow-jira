@@ -5,7 +5,8 @@ import (
 )
 
 type ListIssuesCmd struct {
-	SubstringQuery string `arg:"" default:""`
+	SubstringQuery string `default:""`
+	Jql            string `default:""`
 }
 
 func (l *ListIssuesCmd) Run(ctx *Context) error {
@@ -15,7 +16,11 @@ func (l *ListIssuesCmd) Run(ctx *Context) error {
 			panic(err)
 		}
 
-		issues, resp, err := jiraClient.Issue.Search(JqlQuery, nil)
+		if l.Jql == "" {
+			l.Jql = JqlQuery
+		}
+
+		issues, resp, err := jiraClient.Issue.Search(l.Jql, nil)
 		if err != nil {
 			panic(err)
 		}

@@ -8,6 +8,29 @@
 	<string>Productivity</string>
 	<key>connections</key>
 	<dict>
+		<key>08C4E472-7F82-472D-B376-CF9BC2618808</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>113365E4-A8AC-4251-BDF0-0CCD34C4A576</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>E8A05F21-8AC2-4B34-970F-47F04B954761</string>
+				<key>modifiers</key>
+				<integer>131072</integer>
+				<key>modifiersubtext</key>
+				<string>Paste to underlying app</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>0E158EFE-F8C1-4F29-AC4B-53577B5B6A5F</key>
 		<array>
 			<dict>
@@ -69,6 +92,19 @@
 		</array>
 		<key>4091885B-9841-4845-8F7A-FD23F370563D</key>
 		<array/>
+		<key>708E77A9-1400-45FE-8E0C-641C7E25CA17</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>08C4E472-7F82-472D-B376-CF9BC2618808</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>74007628-96A9-41D7-A3B6-916EEBB99062</key>
 		<array>
 			<dict>
@@ -83,7 +119,7 @@
 			</dict>
 			<dict>
 				<key>destinationuid</key>
-				<string>8EDC51B8-D1D9-4651-9B52-60CDB0D6CD39</string>
+				<string>F9186FC9-D74E-4192-AA91-B8A8EB2893A6</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -247,6 +283,19 @@
 			<dict>
 				<key>destinationuid</key>
 				<string>76E66569-7D24-4F20-8C60-6D1BB3BE011D</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>F9186FC9-D74E-4192-AA91-B8A8EB2893A6</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>8EDC51B8-D1D9-4651-9B52-60CDB0D6CD39</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -431,6 +480,23 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>argument</key>
+				<string>{var:jira_url}browse/{query}</string>
+				<key>passthroughargument</key>
+				<false/>
+				<key>variables</key>
+				<dict/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>F9186FC9-D74E-4192-AA91-B8A8EB2893A6</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>soundname</key>
 				<string>Hero</string>
 				<key>systemsound</key>
@@ -455,7 +521,7 @@
 				<key>spaces</key>
 				<string></string>
 				<key>url</key>
-				<string>{var:jira_url}browse/{query}</string>
+				<string>{query}</string>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.action.openurl</string>
@@ -645,6 +711,123 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>browser</key>
+				<string></string>
+				<key>skipqueryencode</key>
+				<false/>
+				<key>skipvarencode</key>
+				<false/>
+				<key>spaces</key>
+				<string></string>
+				<key>url</key>
+				<string>{query}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>113365E4-A8AC-4251-BDF0-0CCD34C4A576</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<true/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string></string>
+				<key>script</key>
+				<string>./alfred-jira issue list --jql "filter = $1" </string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string></string>
+				<key>title</key>
+				<string></string>
+				<key>type</key>
+				<integer>5</integer>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>08C4E472-7F82-472D-B376-CF9BC2618808</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<true/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<true/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>myfilter</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Retrieving results from Jira API....</string>
+				<key>script</key>
+				<string>./alfred-jira filter list</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string></string>
+				<key>title</key>
+				<string>Use a starred filter</string>
+				<key>type</key>
+				<integer>5</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>708E77A9-1400-45FE-8E0C-641C7E25CA17</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>alfredfiltersresults</key>
 				<true/>
 				<key>alfredfiltersresultsmatchmode</key>
@@ -707,6 +890,25 @@
 			<string>alfred.workflow.output.clipboard</string>
 			<key>uid</key>
 			<string>53504103-BE6D-407A-B813-091A18A24706</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<true/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+				<key>ignoredynamicplaceholders</key>
+				<false/>
+				<key>transient</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>E8A05F21-8AC2-4B34-970F-47F04B954761</string>
 			<key>version</key>
 			<integer>3</integer>
 		</dict>
@@ -992,12 +1194,26 @@
 	<string>Run the `jirasetup` keyword after installing to complete your setup.</string>
 	<key>uidata</key>
 	<dict>
+		<key>08C4E472-7F82-472D-B376-CF9BC2618808</key>
+		<dict>
+			<key>xpos</key>
+			<real>395</real>
+			<key>ypos</key>
+			<real>505</real>
+		</dict>
 		<key>0E158EFE-F8C1-4F29-AC4B-53577B5B6A5F</key>
 		<dict>
 			<key>xpos</key>
 			<real>40</real>
 			<key>ypos</key>
 			<real>200</real>
+		</dict>
+		<key>113365E4-A8AC-4251-BDF0-0CCD34C4A576</key>
+		<dict>
+			<key>xpos</key>
+			<real>675</real>
+			<key>ypos</key>
+			<real>445</real>
 		</dict>
 		<key>1B95671C-AFA4-4411-8479-0FE7B6A8689E</key>
 		<dict>
@@ -1040,6 +1256,13 @@
 			<real>1595</real>
 			<key>ypos</key>
 			<real>545</real>
+		</dict>
+		<key>708E77A9-1400-45FE-8E0C-641C7E25CA17</key>
+		<dict>
+			<key>xpos</key>
+			<real>135</real>
+			<key>ypos</key>
+			<real>505</real>
 		</dict>
 		<key>74007628-96A9-41D7-A3B6-916EEBB99062</key>
 		<dict>
@@ -1139,6 +1362,13 @@
 			<key>ypos</key>
 			<real>910</real>
 		</dict>
+		<key>E8A05F21-8AC2-4B34-970F-47F04B954761</key>
+		<dict>
+			<key>xpos</key>
+			<real>675</real>
+			<key>ypos</key>
+			<real>575</real>
+		</dict>
 		<key>EA7A262E-1FBA-41F6-AFE0-48A3A5C691F3</key>
 		<dict>
 			<key>xpos</key>
@@ -1152,6 +1382,13 @@
 			<real>460</real>
 			<key>ypos</key>
 			<real>1045</real>
+		</dict>
+		<key>F9186FC9-D74E-4192-AA91-B8A8EB2893A6</key>
+		<dict>
+			<key>xpos</key>
+			<real>650</real>
+			<key>ypos</key>
+			<real>160</real>
 		</dict>
 		<key>FAB321CE-7791-460B-ADF6-97E2A360AC4D</key>
 		<dict>

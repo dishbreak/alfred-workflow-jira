@@ -18,6 +18,8 @@ func (l *ListFiltersCmd) Run(ctx *Context) error {
 			ctx.wf.NewItem(filter.Name).Arg(filter.ID).Valid(true)
 		}
 
+		ctx.wf.SendFeedback()
+
 	})
 
 	return nil
