@@ -8,19 +8,6 @@
 	<string>Productivity</string>
 	<key>connections</key>
 	<dict>
-		<key>0379329C-68F7-4B71-B412-49CE5EB5C511</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>C9A02EA8-482C-4977-AB49-3888608E5331</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
 		<key>06864344-A779-440B-A1D0-5D7A632812D2</key>
 		<array>
 			<dict>
@@ -252,7 +239,7 @@
 				<false/>
 			</dict>
 		</array>
-		<key>61AD3690-4AA4-4E47-86C0-A07BE07E8547</key>
+		<key>69668050-6BCD-4588-9AAA-9504F78A05C1</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
@@ -453,19 +440,6 @@
 				<false/>
 			</dict>
 		</array>
-		<key>C9A02EA8-482C-4977-AB49-3888608E5331</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>9BFD8BB8-A8FA-444E-9711-B3C64B3D7A15</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
 		<key>CE4ABE45-B3C0-4223-BD8E-6718D8C0FBBC</key>
 		<array>
 			<dict>
@@ -507,19 +481,6 @@
 			<dict>
 				<key>destinationuid</key>
 				<string>EA7A262E-1FBA-41F6-AFE0-48A3A5C691F3</string>
-				<key>modifiers</key>
-				<integer>0</integer>
-				<key>modifiersubtext</key>
-				<string></string>
-				<key>vitoclose</key>
-				<false/>
-			</dict>
-		</array>
-		<key>DB3E19E4-7C79-4852-B193-23AB9139D64D</key>
-		<array>
-			<dict>
-				<key>destinationuid</key>
-				<string>61AD3690-4AA4-4E47-86C0-A07BE07E8547</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -610,11 +571,11 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>0379329C-68F7-4B71-B412-49CE5EB5C511</string>
+				<string>9BFD8BB8-A8FA-444E-9711-B3C64B3D7A15</string>
 				<key>modifiers</key>
 				<integer>131072</integer>
 				<key>modifiersubtext</key>
-				<string>Open in Browser</string>
+				<string>Open Board in Browser</string>
 				<key>vitoclose</key>
 				<false/>
 			</dict>
@@ -633,7 +594,7 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>DB3E19E4-7C79-4852-B193-23AB9139D64D</string>
+				<string>69668050-6BCD-4588-9AAA-9504F78A05C1</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -692,33 +653,10 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>script</key>
-				<string>python url_builder.py issue "$1"</string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>type</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>DB3E19E4-7C79-4852-B193-23AB9139D64D</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>autopaste</key>
 				<true/>
 				<key>clipboardtext</key>
-				<string>[Jira Link]({query})</string>
+				<string>[Jira Link]({var:jira_url}browse/{query})</string>
 				<key>ignoredynamicplaceholders</key>
 				<false/>
 				<key>transient</key>
@@ -734,23 +672,64 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>matchmode</key>
+				<key>alfredfiltersresults</key>
+				<true/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<true/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
 				<integer>1</integer>
-				<key>matchstring</key>
-				<string>\n</string>
-				<key>regexcaseinsensitive</key>
-				<false/>
-				<key>regexmultiline</key>
-				<false/>
-				<key>replacestring</key>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>myboard</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Getting results from Jira API...</string>
+				<key>script</key>
+				<string>$HOME/.cargo/bin/uv board.py get_board_issues</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
 				<string></string>
+				<key>subtext</key>
+				<string></string>
+				<key>title</key>
+				<string>See issues on my board</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.utility.replace</string>
+			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
-			<string>61AD3690-4AA4-4E47-86C0-A07BE07E8547</string>
+			<string>0E158EFE-F8C1-4F29-AC4B-53577B5B6A5F</string>
 			<key>version</key>
-			<integer>2</integer>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>type</key>
+				<integer>1</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.transform</string>
+			<key>uid</key>
+			<string>69668050-6BCD-4588-9AAA-9504F78A05C1</string>
+			<key>version</key>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -806,55 +785,6 @@
 			<string>8EDC51B8-D1D9-4651-9B52-60CDB0D6CD39</string>
 			<key>version</key>
 			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>alfredfiltersresults</key>
-				<true/>
-				<key>alfredfiltersresultsmatchmode</key>
-				<integer>0</integer>
-				<key>argumenttreatemptyqueryasnil</key>
-				<true/>
-				<key>argumenttrimmode</key>
-				<integer>0</integer>
-				<key>argumenttype</key>
-				<integer>1</integer>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>keyword</key>
-				<string>myboard</string>
-				<key>queuedelaycustom</key>
-				<integer>3</integer>
-				<key>queuedelayimmediatelyinitially</key>
-				<true/>
-				<key>queuedelaymode</key>
-				<integer>0</integer>
-				<key>queuemode</key>
-				<integer>1</integer>
-				<key>runningsubtext</key>
-				<string>Getting results from Jira API...</string>
-				<key>script</key>
-				<string>$HOME/.cargo/bin/uv board.py get_board_issues</string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>subtext</key>
-				<string></string>
-				<key>title</key>
-				<string>See issues on my board</string>
-				<key>type</key>
-				<integer>0</integer>
-				<key>withspace</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.input.scriptfilter</string>
-			<key>uid</key>
-			<string>0E158EFE-F8C1-4F29-AC4B-53577B5B6A5F</string>
-			<key>version</key>
-			<integer>3</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -999,7 +929,7 @@
 				<key>spaces</key>
 				<string></string>
 				<key>url</key>
-				<string>{query}</string>
+				<string>{var:jira_url}secure/RapidBoard.jspa?rapidView={query}</string>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.action.openurl</string>
@@ -1007,50 +937,6 @@
 			<string>9BFD8BB8-A8FA-444E-9711-B3C64B3D7A15</string>
 			<key>version</key>
 			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>script</key>
-				<string>python url_builder.py board $1</string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>type</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>0379329C-68F7-4B71-B412-49CE5EB5C511</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>matchmode</key>
-				<integer>1</integer>
-				<key>matchstring</key>
-				<string>\n</string>
-				<key>regexcaseinsensitive</key>
-				<false/>
-				<key>regexmultiline</key>
-				<false/>
-				<key>replacestring</key>
-				<string></string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.utility.replace</string>
-			<key>uid</key>
-			<string>C9A02EA8-482C-4977-AB49-3888608E5331</string>
-			<key>version</key>
-			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -1887,13 +1773,6 @@ $HOME/.cargo/bin/uv config.py clear_config abab</string>
 			<key>ypos</key>
 			<real>965</real>
 		</dict>
-		<key>0379329C-68F7-4B71-B412-49CE5EB5C511</key>
-		<dict>
-			<key>xpos</key>
-			<real>1305</real>
-			<key>ypos</key>
-			<real>410</real>
-		</dict>
 		<key>06864344-A779-440B-A1D0-5D7A632812D2</key>
 		<dict>
 			<key>xpos</key>
@@ -1911,9 +1790,9 @@ $HOME/.cargo/bin/uv config.py clear_config abab</string>
 		<key>0E158EFE-F8C1-4F29-AC4B-53577B5B6A5F</key>
 		<dict>
 			<key>xpos</key>
-			<real>40</real>
+			<real>235</real>
 			<key>ypos</key>
-			<real>200</real>
+			<real>70</real>
 		</dict>
 		<key>14F2A906-363D-433D-94D8-3A97A27B11EF</key>
 		<dict>
@@ -2013,10 +1892,10 @@ $HOME/.cargo/bin/uv config.py clear_config abab</string>
 			<key>ypos</key>
 			<real>1030</real>
 		</dict>
-		<key>61AD3690-4AA4-4E47-86C0-A07BE07E8547</key>
+		<key>69668050-6BCD-4588-9AAA-9504F78A05C1</key>
 		<dict>
 			<key>xpos</key>
-			<real>1700</real>
+			<real>1500</real>
 			<key>ypos</key>
 			<real>80</real>
 		</dict>
@@ -2072,7 +1951,7 @@ $HOME/.cargo/bin/uv config.py clear_config abab</string>
 		<key>93F2ED66-4BC4-4215-898F-E124057C2978</key>
 		<dict>
 			<key>xpos</key>
-			<real>1800</real>
+			<real>1620</real>
 			<key>ypos</key>
 			<real>50</real>
 		</dict>
@@ -2146,13 +2025,6 @@ $HOME/.cargo/bin/uv config.py clear_config abab</string>
 			<key>ypos</key>
 			<real>310</real>
 		</dict>
-		<key>C9A02EA8-482C-4977-AB49-3888608E5331</key>
-		<dict>
-			<key>xpos</key>
-			<real>1470</real>
-			<key>ypos</key>
-			<real>435</real>
-		</dict>
 		<key>CE4ABE45-B3C0-4223-BD8E-6718D8C0FBBC</key>
 		<dict>
 			<key>xpos</key>
@@ -2173,13 +2045,6 @@ $HOME/.cargo/bin/uv config.py clear_config abab</string>
 			<real>780</real>
 			<key>ypos</key>
 			<real>320</real>
-		</dict>
-		<key>DB3E19E4-7C79-4852-B193-23AB9139D64D</key>
-		<dict>
-			<key>xpos</key>
-			<real>1530</real>
-			<key>ypos</key>
-			<real>50</real>
 		</dict>
 		<key>DFFCF43A-7A5E-49B9-8807-89EADE771110</key>
 		<dict>
