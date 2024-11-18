@@ -5,3 +5,6 @@
 
 *.pyc
 *.alfredworkflow
+*.json
+
+alfred-workflow-jira
